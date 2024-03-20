@@ -4,30 +4,23 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите значение x (-1 <= x < 1):");
+        System.out.println("Введите значение x:");
         double x = scanner.nextDouble();
 
-        System.out.println("Введите количество итераций (n):");
-        int n = scanner.nextInt();
+        System.out.println("Введите значение a:");
+        double a = scanner.nextDouble();
 
-        double S = 0;
-        int iterations = 0;
+        System.out.println("Введите значение b:");
+        double b = scanner.nextDouble();
 
-        for (int i = 1; i <= n; i++) {
-            double an = (calculateInnerSum(i) * Math.pow(x, i + 1)) / (i + 1);
-            S += 2 * an;
-            iterations++;
+        double y;
+
+        if (x >= 2) {
+            y = Math.sqrt(1 + x * Math.sqrt(a * x));
+        } else {
+            y = a * Math.sin(b * x) + 3;
         }
 
-        System.out.println("Значение функции S: " + S);
-        System.out.println("Количество итераций: " + iterations);
-    }
-
-    private static double calculateInnerSum(int n) {
-        double sum = 0;
-        for (int i = 1; i <= n; i++) {
-            sum += 1.0 / i;
-        }
-        return sum;
+        System.out.println("Значение функции y = f(x) при x = " + x + ": " + y);
     }
 }
